@@ -7,9 +7,9 @@ def roman_to_i roman_num
 
 	while index >= 0
 		s = roman_num[index].downcase #gets the specific letter in the string
-		value = letters[s]
 		index = index - 1
-
+		value = letters[s]
+		
 		if !value
 			'That is not a valid Roman numeral'
 			return
