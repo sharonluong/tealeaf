@@ -1,5 +1,5 @@
 def chime &block
-	now = Time.new.hour
+	now = Time.new.hour #gets the hour in 24 hour format
 	
 		if now > 12
 			time_number = now - 12
@@ -12,6 +12,7 @@ def chime &block
 	end
 end
 
+#this is the block that you're passing to the method chime
 chime do
 	puts 'DONG!'
 end
