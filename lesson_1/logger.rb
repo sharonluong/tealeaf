@@ -1,7 +1,14 @@
+$indent = 0
+
 def log name, &block
-	puts 'We are beginning the block "' + name + '" now.'
+	prefix = '  ' * $indent
+	puts  prefix + 'We are beginning the block "' + name + '" now.'
+	$indent = $indent + 1
+
 	ending = block.call
-	puts '"' + name + '" is now finished. It returns ' + ending.to_s
+	
+	$indent = $indent - 1
+	puts prefix + '"' + name + '" is now finished. It returns ' + ending.to_s
 end
 
 log 'something' do
