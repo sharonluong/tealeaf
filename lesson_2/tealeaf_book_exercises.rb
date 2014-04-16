@@ -6,6 +6,7 @@ class MyCar
 		@color = c
 		@model = m
 		@speed = 0
+		@@mileage = 0
 	end
 
 	def go_faster
@@ -34,6 +35,15 @@ class MyCar
 	def info
 		puts "The car was made in #{year} and is a #{color} color."
 	end
+
+	def self.gas_mileage(miles, gallons)
+		@@mileage = miles / gallons
+		puts "The car gets #{@@mileage} miles per gallon."
+	end
+
+	def to_s
+		"This car is #{color} #{model} made in #{year}."
+	end
 end
 
 first_car = MyCar.new(1996, 'black', 'Integra')
@@ -45,3 +55,8 @@ first_car.year_info
 first_car.info
 first_car.change_color('white')
 first_car.info
+MyCar.gas_mileage(400, 12)
+puts first_car
+
+#3. The error shows up because there is no setter method
+#We can fix it by using attr_accessor or adding attr_writer
