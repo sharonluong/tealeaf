@@ -1,0 +1,69 @@
+1. What is HTML? What is CSS? What is Javascript?
+
+HTML stands for HyperText Markup Language and is used to make webpages. CSS stands for Cascading Style Sheets and is used to style websites. Javascript is a programming language that is used for user interaction with the website and alter content.
+
+2. What are the major parts of an HTTP request?
+
+The major parts of an HTTP request are:
+	HTTP verb/ method - GET or POST
+	URL
+	Parameters
+
+3. What are the major parts of an HTTP response?
+
+The major parts of an HTTP response are:
+	Status code - like 404 OR 200
+	The payload
+
+4. How do you submit an HTTP POST request, with a "username" attribute set to "bob"? What if we wanted a GET request instead?
+
+You would need to put in a form on your .erb (view) page with a method of 'post' and set the input to have a name of 'username'. If you wanted a GET request, it would have a method of 'get' instead.
+
+On your .rb file, you would need to have GET and POST routes established. 
+
+get '/new_name' do
+	username = params['username']
+	erb :new_name
+done
+
+post '/new_game' do
+	username = params['username']
+	redirect '/new_page'
+done
+
+Then, when the form is displayed, enter in the name 'bob' and the request will be done.
+
+5. Why is it important for us, as web developers, to understand that HTTP is a "stateless" protocol?
+
+HTTP is stateless so that it can apply to many different situations and hosts and clients. Since there is no state between requests, the application must reconstitute the world from the database after every request to simulate a "state". This makes cookies very important for authenticated sites and makes web games hard to develop.
+
+6. If the internet is just HTTP requests/responses, why do we only use browsers to interface with web applications? Are there any other options?
+
+We use browsers to render the interface. Using browsers means the web app takes little or no disk space on the person's computer and you can update your web app without having to distribute software.
+
+7. What is MVC, and why is it important?
+
+MVC is model-view-controller architecture for web applications and divides all aspects of the web app into those three categories, and was instrumental in developing graphical user interfaces.
+
+Sinatra questions
+
+1. At a high level, how are requests processed?
+
+Requests are sent to the controller which interacts with the model (which interacts with the database) and determines whether a render or redirect is in order.
+
+2. In the controller/action, what's the difference between rendering and redirecting?
+
+Rendering shows the view (the template). Redirect is actually sending a new request to a different action or URL.
+
+3. In the ERB view template, how do you show dynamic content?
+
+You show dynamic ruby content by using <%= %> notation.
+
+4. Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
+
+The ERB template is already HTML but with bits of Ruby embedded within it. 
+
+5. What's the role of instance variables in Sinatra?
+
+Instance variables are only available in Render responses and are available for you to pass into the ERB template. They are not persistent and are only available on a per request availability.
+
