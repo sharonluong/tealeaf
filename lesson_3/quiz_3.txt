@@ -57,11 +57,11 @@ Rendering shows the view (the template). Redirect is actually sending a new requ
 
 3. In the ERB view template, how do you show dynamic content?
 
-You show dynamic ruby content by using <%= %> notation.
+You show ruby content by using <%= %> notation. Dynamic content is used with instance variables, helper methods, and sessions.
 
 4. Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
 
-The ERB template is already HTML but with bits of Ruby embedded within it. 
+The ERB template is already HTML but with bits of Ruby embedded within it. It is turned into HTML on the server side.
 
 5. What's the role of instance variables in Sinatra?
 
